@@ -1,3 +1,3 @@
-AWS_SECRET="AKIAIOSFODNN7EXAMPLE"
+AWS_SECRET="Loaded from environment"
 
 print("Application Running...")
