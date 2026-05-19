@@ -1,0 +1,22 @@
+name: Secure CI/CD Pipeline
+
+on:
+  push:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Scan for AWS Secrets
+        run: |
+          if grep -r "AKIA" .; then
+            echo "CRITICAL: AWS Secret Detected!"
+            exit 1
+          fi
+
+      - name: Build Success
+        run: echo "Build Passed Successfully"
