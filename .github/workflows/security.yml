@@ -13,7 +13,7 @@ jobs:
 
       - name: Scan for AWS Secrets
         run: |
-          if grep -r "AKIA" .; then
+          if grep -r --exclude-dir=.git "AKIA" .; then
             echo "CRITICAL: AWS Secret Detected!"
             exit 1
           fi
